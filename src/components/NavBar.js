@@ -1,6 +1,7 @@
 import React from 'react';
 
 import '../assets/styles.css';
+import CartWidget from './CartWidget';
 
 function NavBar() {
     return (
@@ -35,6 +36,12 @@ function NavBar() {
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contacto</a>
+                        </li>
+
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <button type="button" className="btn btn-light navbar-btn btn-sm"><CartWidget /></button>
                         </li>
                     </ul>
                 </div>
