@@ -1,18 +1,43 @@
-import React from 'react';
-import ItemCount from './ItemCount';
+import React, { useEffect, useState } from 'react';
+
+import ItemList from './ItemList';
+import PRODUCTS from '../products';
 
 const ItemListContainer = (props) => {
 
-    const addCart = () => {
-        alert('El producto se agrego al carrito exitosamente');
+
+    const [productos, setProductos] = useState(null);
+
+    useEffect(() => {
+        getProductAsyncAwait()
+    }, [])
+
+    const getProductos = () => {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => PRODUCTS
+                ? resolve(PRODUCTS)
+                : reject(new Error('getProducts Error'))
+                , 2000)
+        })
     }
+
+    const getProductAsyncAwait = async () => {
+        try {
+            const products = await getProductos()
+            setProductos(products)
+        } catch (error) {
+            console.log(`ERROR`, 'Algo malio sal', error)
+        }
+    }
+
+
 
 
     return (
         <>
             <h1 style={{ marginTop: 30 }}> {props.greetings} </h1>
-
-            <ItemCount initial={1} initialStock={5} onAdd={addCart} />
+            <hr />
+            <ItemList productos={productos} />
         </>
     );
 }
