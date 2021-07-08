@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom'
 
 import ItemList from './ItemList';
 import PRODUCTS from '../products';
 
 const ItemListContainer = (props) => {
 
-
+    const { categoryId } = useParams();
     const [productos, setProductos] = useState(null);
 
     useEffect(() => {
         getProductAsyncAwait()
-    }, [])
+    }, [categoryId])
 
     const getProductos = () => {
         return new Promise((resolve, reject) => {
@@ -23,14 +24,18 @@ const ItemListContainer = (props) => {
 
     const getProductAsyncAwait = async () => {
         try {
-            const products = await getProductos()
-            setProductos(products)
+            const products = await getProductos();
+            if (categoryId) {
+                const productFilter = products.filter(element => element.category == categoryId);
+                setProductos(productFilter);
+            } else {
+                setProductos(products);
+            }
+
         } catch (error) {
-            console.log(`ERROR`, 'Algo malio sal', error)
+            console.log(`ERROR`, 'Algo salio mal', error)
         }
     }
-
-
 
 
     return (

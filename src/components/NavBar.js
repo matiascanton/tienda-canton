@@ -1,42 +1,56 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 import '../assets/styles.css';
 import CartWidget from './CartWidget';
 
 function NavBar() {
+
+    const categories = [
+        {
+            id: 1,
+            name: 'Nike',
+        },
+        {
+            id: 2,
+            name: 'Adidas'
+        },
+        {
+            id: 3,
+            name: 'Puma'
+        }
+    ]
+
     return (
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Logo</a>
+                <Link class="navbar-brand" to="/">Logo</Link>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                            <Link className="nav-link active" aria-current="page" to="/">Inicio</Link>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Tienda</a>
-                        </li>
+                        {/*<li class="nav-item">
+                            <Link class="nav-link" to="/item-list-container">Tienda</Link>
+                        </li>*/}
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Productos
-                            </a>
+                            <Link class="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Categorias
+                            </Link>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">Categoria 1</a></li>
-                                <li><a class="dropdown-item" href="#">Categoria 2</a></li>
-                                <li><a class="dropdown-item" href="#">Categoria 3</a></li>
-                                <li><a class="dropdown-item" href="#">Categoria 4</a></li>
+                                {categories.map(category => <li><Link className="dropdown-item" to={`/category/${category.id}`}>{category.name}</Link></li>)}
                             </ul>
                         </li>
+                        {/*
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Nosotros</a>
+                            <Link class="nav-link" to="#">Nosotros</Link>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Contacto</a>
-                        </li>
+                            <Link class="nav-link" to="#">Contacto</Link>
+                        </li>*/}
 
                     </ul>
                     <ul class="nav navbar-nav navbar-right">

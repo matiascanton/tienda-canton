@@ -1,4 +1,9 @@
 import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 
 import NavBar from './components/NavBar';
 
@@ -9,9 +14,23 @@ import ItemDetailContainer from './components/ItemDetailContainer';
 function App() {
   return (
     <div className="App">
-      <NavBar />
-      <ItemListContainer greetings="Bienvenidos a la tienda" />
-      <ItemDetailContainer />
+
+      <Router>
+        <NavBar />
+        <Switch>
+          <Route exact path="/">
+            <ItemListContainer greetings="Bienvenidos a la tienda" />
+          </Route>
+          <Route exact path="/category/:categoryId">
+            <ItemListContainer />
+          </Route>
+          <Route exact path="/item/:itemId">
+            <ItemDetailContainer />
+          </Route>
+        </Switch>
+      </Router>
+
+
 
     </div>
   );

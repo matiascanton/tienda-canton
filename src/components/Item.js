@@ -1,7 +1,9 @@
 import React from 'react';
 import ItemCount from './ItemCount';
 
-const Item = ({ name, stock, img, description, price }) => {
+import { Link } from 'react-router-dom';
+
+const Item = ({ id, name, img, description, price }) => {
 
 
     const addCart = () => {
@@ -11,10 +13,10 @@ const Item = ({ name, stock, img, description, price }) => {
 
     return (
 
-        <div class="col">
-            <h1> {name} </h1>
+        <div className="col-4">
+            <Link to={`/item/${id}`}>
+                <h1> {name} </h1></Link>
             <img className="img-fluid " src={img} alt={name} />
-            <p> {description} </p>
             <h3>${price}</h3>
             <ItemCount initial={1} initialStock={5} onAdd={addCart} />
         </div>
