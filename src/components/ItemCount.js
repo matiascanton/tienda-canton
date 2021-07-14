@@ -13,9 +13,6 @@ const ItemCount = ({ initialStock, initial, onAdd }) => {
         }
     }
 
-
-
-
     return (
 
 
@@ -28,7 +25,7 @@ const ItemCount = ({ initialStock, initial, onAdd }) => {
 
 
             {(stock < 1) && <span> No stock </span>}
-            <button type="button" className="btn btn-success" onClick={() => { count <= stock && onAdd() }}> Agregar al Carrito</button>
+            <button type="button" className="btn btn-success" onClick={() => { count <= stock && onAdd(count) }}> Agregar al Carrito</button>
         </div>
 
     );

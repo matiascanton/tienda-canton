@@ -1,8 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 
+import ItemCount from './ItemCount';
 
 
 const ItemDetail = ({ name, price, description, image }) => {
+
+    const [count, setCount] = useState(0);
+
+    const onAdd = (value) => {
+        setCount(value);
+    };
 
     return (
         <div className="container">
@@ -18,7 +26,11 @@ const ItemDetail = ({ name, price, description, image }) => {
                                     <h5 className="card-title">{name}</h5>
                                     <p className="card-text">{description}</p>
                                     <p className="card-text"><small className="text-muted">{price}</small></p>
+                                    <div className="col-md-3 align-self-center">
+                                        {count > 0 ? <Link to="/cart" style={{ textDecoration: 'none' }}><button className="btn btn-success" type="button">Finalizar Compra</button> </Link> : <ItemCount initial={1} initialStock={5} onAdd={onAdd} />}
+                                    </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>

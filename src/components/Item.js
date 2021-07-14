@@ -6,15 +6,15 @@ import { Link } from 'react-router-dom';
 const Item = ({ id, name, img, description, price }) => {
 
 
-    const addCart = () => {
-        alert('El producto se agrego al carrito exitosamente');
+    const addCart = (value) => {
+        console.log(value);
     }
 
 
     return (
 
         <div className="col-4">
-            <Link to={`/item/${id}`}>
+            <Link to={`/item/${id}`} style={{ color: 'inherit', textDecoration: 'none' }}>
                 <h1> {name} </h1></Link>
             <img className="img-fluid " src={img} alt={name} />
             <h3>${price}</h3>
