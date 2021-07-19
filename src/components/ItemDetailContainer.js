@@ -34,7 +34,7 @@ const ItemDetailContainer = () => {
 
     return (
         <>
-            <ItemDetail name={detailProduct.name} price={detailProduct.price} description={detailProduct.description} image={detailProduct.img} />
+            <ItemDetail itemId={itemId} name={detailProduct.name} price={detailProduct.price} description={detailProduct.description} image={detailProduct.img} />
         </>
     );
 }
