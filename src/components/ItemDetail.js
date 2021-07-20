@@ -8,8 +8,14 @@ import ItemCount from './ItemCount';
 const ItemDetail = ({ itemId, name, price, description, image }) => {
 
     const [count, setCount] = useState(0);
+    const itemData = {
+        id: itemId,
+        name: name,
+        price: price,
+        image: image
+    }
 
-    const { addItem } = useContext(CartContext);
+    const { addItem, isInCart } = useContext(CartContext);
 
     const onAdd = (value) => {
         setCount(value);
@@ -30,7 +36,7 @@ const ItemDetail = ({ itemId, name, price, description, image }) => {
                                     <p className="card-text">{description}</p>
                                     <p className="card-text"><small className="text-muted">{price}</small></p>
                                     <div className="col-md-3 align-self-center">
-                                        {count > 0 ? <Link to="/cart" style={{ textDecoration: 'none' }}><button onClick={() => addItem(itemId, count)} className="btn btn-success" type="button">Finalizar Compra</button> </Link> : <ItemCount initial={1} initialStock={5} onAdd={onAdd} />}
+                                        {count > 0 ? <Link to="/cart" style={{ textDecoration: 'none' }}><button onClick={() => addItem(itemData, count)} className="btn btn-success" type="button">Finalizar Compra</button> </Link> : <ItemCount initial={1} initialStock={5} onAdd={onAdd} />}
                                     </div>
                                 </div>
 
