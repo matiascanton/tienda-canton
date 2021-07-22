@@ -55,7 +55,7 @@ function NavBar() {
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <button type="button" className="btn btn-light navbar-btn btn-sm"><CartWidget /></button>
+                            <Link className="nav-link" aria-current="page" to="/cart"><CartWidget /></Link>
                         </li>
                     </ul>
                 </div>

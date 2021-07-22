@@ -22,7 +22,7 @@ const PRODUTCS = [
         name: 'Nike Air Max 90',
         stock: 10,
         price: 11000,
-        img: 'https://redsport.vteximg.com.br/arquivos/ids/1056926-1000-1000/GA025049010.jpg?v=637372505406900000',
+        img: 'https://woker.vteximg.com.br/arquivos/ids/171172-1000-1000/4AR5339-100-0064.jpg?v=637013076621130000',
         category: 1,
         description: 'Zapatillas nike'
     },

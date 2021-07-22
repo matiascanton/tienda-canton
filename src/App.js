@@ -23,8 +23,9 @@ function App() {
 
       <Router>
         {/* Navigation Bar */}
-        <NavBar />
         <CartProvider>
+          <NavBar />
+
           <Switch>
             {/* Home Screen */}
             <Route exact path="/">
