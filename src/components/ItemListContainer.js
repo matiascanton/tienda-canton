@@ -1,42 +1,56 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom'
+import { getFirestore } from '../firebase';
 
 import ItemList from './ItemList';
-import PRODUCTS from '../products';
+
 
 const ItemListContainer = (props) => {
 
     const { categoryId } = useParams();
-    const [productos, setProductos] = useState(null);
+    console.log(categoryId);
+
+    const [loading, setLoading] = useState(false);
+    const [productos, setProductos] = useState([]);
 
     useEffect(() => {
-        getProductAsyncAwait()
-    }, [categoryId])
+        setLoading(true);
+        const db = getFirestore();
 
-    const getProductos = () => {
-        return new Promise((resolve, reject) => {
-            setTimeout(() => PRODUCTS
-                ? resolve(PRODUCTS)
-                : reject(new Error('getProducts Error'))
-                , 2000)
-        })
-    }
+        if (categoryId) {
+            const itemCollection = db.collection("product").where("brand" == categoryId);
+            itemCollection.get().then((querySnapshot) => {
+                if (querySnapshot.size === 0) {
+                    console.log('no result')
+                } else {
+                    setProductos(querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })))
+                }
+            }).catch(error => {
+                console.log('error', error);
+            }).finally(() => {
+                setLoading(false);
+            })
+        } else {
+            const itemCollection = db.collection("product");
+            itemCollection.get().then((querySnapshot) => {
+                if (querySnapshot.size === 0) {
+                    console.log('no result')
+                } else {
+                    setProductos(querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })))
+                }
+            }).catch(error => {
+                console.log('error', error);
+            }).finally(() => {
+                setLoading(false);
+            })
 
-    const getProductAsyncAwait = async () => {
-        try {
-            const products = await getProductos();
-            if (categoryId) {
-                const productFilter = products.filter(element => element.category == categoryId);
-                setProductos(productFilter);
-            } else {
-                setProductos(products);
-            }
-
-        } catch (error) {
-            console.log(`ERROR`, 'Algo salio mal', error)
         }
-    }
 
+
+    }, []);
+
+
+    console.log(productos);
 
     return (
         <>

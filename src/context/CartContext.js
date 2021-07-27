@@ -6,6 +6,7 @@ export const CartProvider = ({ children }) => {
 
     const [item, setItem] = useState([]);
     const [cartQuant, setCartQuant] = useState(0);
+    const [cartTotal, setCartTotal] = useState(0);
 
     const addItem = (itemData, quantity) => {
         if (isInCart(itemData.id)) {
@@ -23,15 +24,28 @@ export const CartProvider = ({ children }) => {
     };
 
     useEffect(() => {
+        calculateTotal();
+        calculateQuantity();
+    }, [item])
+
+
+    const clearCart = () => setItem([]);
+
+    const calculateTotal = () => {
+        let cant = 0;
+        item.map(element => {
+            cant = cant + (element.quantity * element.price)
+        })
+        setCartTotal(cant);
+    }
+
+    const calculateQuantity = () => {
         let cant = 0;
         item.map(element => {
             cant = cant + element.quantity
         })
         setCartQuant(cant)
-    }, [item])
-
-
-    const clearCart = () => setItem([]);
+    }
 
     const removeItem = (itemId) => {
         const newArray = item.filter((element) => element.id !== itemId);
@@ -39,7 +53,7 @@ export const CartProvider = ({ children }) => {
     }
 
     return (
-        <CartContext.Provider value={{ addItem, item, isInCart, cartQuant, removeItem, clearCart }}>
+        <CartContext.Provider value={{ addItem, item, isInCart, cartQuant, removeItem, clearCart, cartTotal }}>
             {children}
         </CartContext.Provider>
     )

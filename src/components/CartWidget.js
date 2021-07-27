@@ -12,7 +12,6 @@ export default function CartWidget() {
             <button type="button" class="btn btn-light position-relative">
                 <img src={IconCart} alt="Carrito" />
                 {cartQuant > 0 && <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"> {cartQuant}</span>}
-
             </button>
         </>
     );

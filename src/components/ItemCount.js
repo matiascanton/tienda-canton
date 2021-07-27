@@ -16,7 +16,7 @@ const ItemCount = ({ initialStock, initial, onAdd }) => {
     return (
 
         <div >
-            <div className="input-group mb-3">
+            <div className="input-group mb-2">
                 <button className="btn btn-outline-secondary" type="button" onClick={() => { count > 1 && setCount(count - 1) }}>-</button>
                 <input className="form-control form-control-sm" aria-label="Example text with two button addons" value={count} />
                 <button className="btn btn-outline-secondary" type="button" onClick={addCount}>+</button>

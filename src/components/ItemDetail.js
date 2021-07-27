@@ -15,7 +15,7 @@ const ItemDetail = ({ itemId, name, price, description, image }) => {
         image: image
     }
 
-    const { addItem, isInCart } = useContext(CartContext);
+    const { addItem } = useContext(CartContext);
 
     const onAdd = (value) => {
         setCount(value);

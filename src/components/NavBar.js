@@ -41,7 +41,7 @@ function NavBar() {
                                 Categorias
                             </Link>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                {categories.map(category => <li><Link className="dropdown-item" to={`/category/${category.id}`}>{category.name}</Link></li>)}
+                                {categories.map(category => <li><Link className="dropdown-item" to={`/category/${category.name}`}>{category.name}</Link></li>)}
                             </ul>
                         </li>
                         {/*

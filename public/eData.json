@@ -1,0 +1,25 @@
+{
+    "main": {
+        "storename": "shoestore", 
+        "description": "Tienda de Zapatillas",
+        "logo-navbar": "",
+        "logo": "",
+        "address": {
+            "street": "",
+            "city": "",
+            "state": ""
+        }
+    },
+    "social": [
+        {
+            "name": "instagram",
+            "url": "",
+            "className": ""
+        },
+        {
+            "name": "facebook",
+            "url": "",
+            "className": ""
+        }
+    ]
+}
