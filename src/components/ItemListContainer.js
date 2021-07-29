@@ -8,7 +8,6 @@ import ItemList from './ItemList';
 const ItemListContainer = (props) => {
 
     const { categoryId } = useParams();
-    console.log(categoryId);
 
     const [loading, setLoading] = useState(false);
     const [productos, setProductos] = useState([]);
@@ -18,7 +17,7 @@ const ItemListContainer = (props) => {
         const db = getFirestore();
 
         if (categoryId) {
-            const itemCollection = db.collection("product").where("brand" == categoryId);
+            const itemCollection = db.collection("product").where("brand", "==", categoryId);
             itemCollection.get().then((querySnapshot) => {
                 if (querySnapshot.size === 0) {
                     console.log('no result')
@@ -43,14 +42,8 @@ const ItemListContainer = (props) => {
             }).finally(() => {
                 setLoading(false);
             })
-
         }
-
-
-    }, []);
-
-
-    console.log(productos);
+    }, [categoryId]);
 
     return (
         <>

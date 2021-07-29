@@ -44,6 +44,7 @@ const Cart = () => {
                         </tbody>
                     </table>
                     <button type="button" className="btn btn-danger" onClick={() => clearCart()}>Clear</button>
+                    <Link to="/payment" ><button type="button" className="btn btn-success" >Pagar</button></Link>
                 </div>
                 : <div>
                     <h1>no hay items</h1>

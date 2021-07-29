@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-
 import { getFirestore } from '../firebase';
 
 import ItemDetail from './ItemDetail';
@@ -8,9 +7,15 @@ import ItemDetail from './ItemDetail';
 const ItemDetailContainer = () => {
 
     const { itemId } = useParams();
-    const [detailProduct, setDetailProduct] = useState('');
+    const [detailProduct, setDetailProduct] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [imagen, setImagen] = useState([]);
 
+    useEffect(() => {
+        setImagen(detailProduct.images);
+
+
+    }, [detailProduct])
 
     useEffect(() => {
         setLoading(true);
@@ -32,7 +37,7 @@ const ItemDetailContainer = () => {
 
     return (
         <>
-            <ItemDetail itemId={itemId} name={detailProduct.name} price={detailProduct.price} description={detailProduct.description} image={detailProduct.img} />
+            <ItemDetail itemId={itemId} name={detailProduct.name} price={detailProduct.price} description={detailProduct.description} image={imagen} />
         </>
     );
 }
