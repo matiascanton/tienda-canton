@@ -1,0 +1,24 @@
+.buttonCard {
+  display: none;
+}
+
+.itemCard:hover div {
+  display: inline;
+  /* -webkit-box-shadow: 0px 0px 11px 6px rgba(0, 0, 0, 0.84);*/
+  /*box-shadow: 0px 0px 11px 6px rgba(0, 0, 0, 0.84);*/
+  box-shadow: 0 0 30px 2px #2d2d2d;
+  transition: 0.4s all;
+}
+.itemCard:hover {
+  border-color: #979797;
+  transition: 0.4s all;
+  transform: scale(1.03);
+}
+
+.itemCard {
+  border-color: transparent;
+}
+
+/*.card {
+  height: 410px;
+}*/

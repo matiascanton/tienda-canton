@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getFirestore } from '../firebase';
+import firebase from 'firebase';
 
 import ItemDetail from './ItemDetail';
 
@@ -13,8 +14,6 @@ const ItemDetailContainer = () => {
 
     useEffect(() => {
         setImagen(detailProduct.images);
-
-
     }, [detailProduct])
 
     useEffect(() => {
@@ -34,10 +33,17 @@ const ItemDetailContainer = () => {
         })
     }, []);
 
-
     return (
         <>
-            <ItemDetail itemId={itemId} name={detailProduct.name} price={detailProduct.price} description={detailProduct.description} image={imagen} />
+            {loading ?
+                <div className="text-center" style={{ padding: 50 }}>
+                    <div className="spinner-border" role="status">
+                        <span className="sr-only"></span>
+                    </div>
+                </div>
+                :
+                <ItemDetail itemId={itemId} name={detailProduct.name} brand={detailProduct.brand} model={detailProduct.model} price={detailProduct.price} description={detailProduct.description} image={imagen} />
+            }
         </>
     );
 }

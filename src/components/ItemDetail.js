@@ -1,15 +1,19 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom';
 import { CartContext } from '../context/CartContext';
-import firebase from 'firebase';
+import Carousel from 'react-gallery-carousel';
+import 'react-gallery-carousel/dist/index.css';
+
 
 import ItemCount from './ItemCount';
 
+// Styles
+import './detail.css';
 
-const ItemDetail = ({ itemId, name, price, description, image }) => {
+const ItemDetail = ({ itemId, name, price, description, image, brand, model }) => {
 
     const [count, setCount] = useState(0);
-    const [imagen, setImagen] = useState([]);
+    const [imagen, setImagen] = useState([{}]);
     const itemData = {
         id: itemId,
         name: name,
@@ -24,33 +28,36 @@ const ItemDetail = ({ itemId, name, price, description, image }) => {
     };
 
     useEffect(() => {
-        var storage = firebase.storage();
-        image.map((img) => {
-            var gsReference = storage.refFromURL(img)
-            gsReference.getDownloadURL().then(function (url) {
-                setImagen(url);
-            }).catch(function (error) {
-                // Handle any errors
-            });
-        })
+        setImagen(image.map((img) => ({ src: img })))
     }, [])
 
     return (
         <div className="container">
-            <div className="row justify-content-center">
-                <div className="col-10 align-self-center">
-                    <div className="card mb-3" style={{ maxWidth: 1000 }}>
-                        <div className="row g-0">
-                            <div className="col-md-4">
-                                {console.log(imagen)/*imagen.map(img => <img src={img} className="img-fluid rounded-start" alt="..." />)*/}
-                                <img src={imagen[0]} className="img-fluid rounded-start" alt="..." />
-                            </div>
-                            <div className="col-md-8">
-                                <div className="card-body">
-                                    <h5 className="card-title">{name}</h5>
-                                    <p className="card-text">{description}</p>
-                                    <p className="card-text"><small className="text-muted">{price}</small></p>
-                                    <div className="col-md-3 align-self-center">
+            <div className="card card-item shadow p-3 mb-5 bg-body rounded">
+                <div className="container-fliud">
+                    <div className="wrapper row justify-content-center">
+                        <div className="preview col-md-6">
+                            <Carousel images={imagen}
+                                hasMediaButton={false}
+                                hasSizeButton={false}
+                                hasIndexBoard={false}
+                                hasDotButtons={true}
+                                hasLeftButton={false}
+                                hasRightButton={false}
+                                widgetsHasShadow={false}
+                                thumbnailWidth='15%'
+                            />
+                        </div>
+                        <div className="details col-md-6">
+                            <div className="card-body">
+                                <h3 className="product-title"><span class="badge bg-dark">{brand}</span> {name} {model}</h3>
+
+                                <p className="product-description">{description}</p>
+
+                                <h4 className="price">${price}</h4>
+
+                                <div className="action">
+                                    <div className="col-md-4 offset-md-5">
                                         {count > 0 ? <Link to="/cart" style={{ textDecoration: 'none' }}><button onClick={() => addItem(itemData, count)} className="btn btn-success" type="button">Finalizar Compra</button> </Link> : <ItemCount initial={1} initialStock={5} onAdd={onAdd} />}
                                     </div>
                                 </div>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom'
 import { getFirestore } from '../firebase';
+import Banner from './Banner';
 
 import ItemList from './ItemList';
 
@@ -46,11 +47,20 @@ const ItemListContainer = (props) => {
     }, [categoryId]);
 
     return (
-        <>
-            <h1 style={{ marginTop: 30 }}> {props.greetings} </h1>
-            <hr />
-            <ItemList productos={productos} />
-        </>
+        <div className="container-fluid">
+            {loading ?
+                <div className="text-center" style={{ padding: 50 }}>
+                    <div className="spinner-border" role="status">
+                        <span className="sr-only"></span>
+                    </div>
+                </div>
+                :
+                <div className="listProducts">
+                    <Banner />
+                    <ItemList productos={productos} category={categoryId} />
+                </div>
+            }
+        </div>
     );
 }
 

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../assets/styles.css';
 import CartWidget from './CartWidget';
+import Logo from '../assets/images/logo2.jpg'
 
 function NavBar() {
 
@@ -24,7 +25,7 @@ function NavBar() {
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <Link class="navbar-brand" to="/">Logo</Link>
+                <Link class="navbar-brand" to="/"><img style={{ width: 80 }} src={Logo}></img></Link>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -44,14 +45,6 @@ function NavBar() {
                                 {categories.map(category => <li><Link className="dropdown-item" to={`/category/${category.name}`}>{category.name}</Link></li>)}
                             </ul>
                         </li>
-                        {/*
-                        <li class="nav-item">
-                            <Link class="nav-link" to="#">Nosotros</Link>
-                        </li>
-                        <li class="nav-item">
-                            <Link class="nav-link" to="#">Contacto</Link>
-                        </li>*/}
-
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li>
