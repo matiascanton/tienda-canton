@@ -11,7 +11,7 @@ Es un ecommerce creado con React.js para el curso de React de Coderhouse.
 
 * [Shoestore-canton](https://shoestore-canton.netlify.app/)
 
-### Instalación 🔧
+## Instalación 🔧
 
 Una vez descargado el repositorio es necesario instalar todas las dependencias con el comando
 ```
@@ -24,8 +24,6 @@ npm start
 ```
 
 ## Construido con 🛠️
-
-_Menciona las herramientas que utilizaste para crear tu proyecto_
 
 * [React](https://es.reactjs.org/) - El framework usado
 * [Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/) - Framework de css
