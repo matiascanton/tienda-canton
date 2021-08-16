@@ -4,7 +4,7 @@ Es un ecommerce creado con React.js para el curso de React de Coderhouse.
 
 ## Vista General
 
-![Screenshot](screenshot.png)
+![Screenshot](/public/CapturaListado.PNG?raw=true "Optional Title")
 
 
 ### Instalación 🔧
