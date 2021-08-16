@@ -30,9 +30,13 @@ const Footer = () => {
                         </div>
                         <div className="col-md-6 item text">
 
-                            <h3>Shoestore</h3>
+                            <h3>Nuestra Sucursal</h3>
 
-                            <p>Somos una importadora de Zapatillas bla bla bla bla asdasda bla bla blasdasd asd as bla bla blasd asd asd as d.</p>
+                            <div className="col">
+                                <div className="embed-responsive embed-responsive-4by3">
+                                    <iframe className="embed-responsive-item" title="Caseros" src="https://maps.google.com/maps?width=100%25&amp;height=100&amp;hl=es&amp;q=-34.590941,%20-58.570813+(Punto%20Caseros)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" ></iframe>
+                                </div>
+                            </div>
 
                         </div>
                         <div className="col item social">

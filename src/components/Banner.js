@@ -14,13 +14,13 @@ const Banner = () => {
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
             <div className="carousel-inner">
-                <div className="carousel-item active">
+                <div className="carousel-item active" data-bs-interval="2000">
                     <img src={Banner1} className="d-block w-100" alt="..." />
                 </div>
-                <div className="carousel-item">
+                <div className="carousel-item" data-bs-interval="2000">
                     <img src={Banner2} className="d-block w-100" alt="..." />
                 </div>
-                <div className="carousel-item">
+                <div className="carousel-item" data-bs-interval="2000">
                     <img src={Banner3} className="d-block w-100" alt="..." />
                 </div>
             </div>
