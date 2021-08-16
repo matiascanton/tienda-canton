@@ -15,35 +15,28 @@ const ItemListContainer = (props) => {
 
     useEffect(() => {
         setLoading(true);
-        const db = getFirestore();
+
+        let db = getFirestore();
+        let itemCollection
 
         if (categoryId) {
-            const itemCollection = db.collection("product").where("brand", "==", categoryId);
-            itemCollection.get().then((querySnapshot) => {
-                if (querySnapshot.size === 0) {
-                    console.log('no result')
-                } else {
-                    setProductos(querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })))
-                }
-            }).catch(error => {
-                console.log('error', error);
-            }).finally(() => {
-                setLoading(false);
-            })
+            itemCollection = db.collection("product").where("brand", "==", categoryId);
         } else {
-            const itemCollection = db.collection("product");
-            itemCollection.get().then((querySnapshot) => {
-                if (querySnapshot.size === 0) {
-                    console.log('no result')
-                } else {
-                    setProductos(querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })))
-                }
-            }).catch(error => {
-                console.log('error', error);
-            }).finally(() => {
-                setLoading(false);
-            })
+            itemCollection = db.collection("product");
         }
+
+        itemCollection.get().then((querySnapshot) => {
+            if (querySnapshot.size === 0) {
+                console.log('no result')
+            } else {
+                setProductos(querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })))
+            }
+        }).catch(error => {
+            console.log('error', error);
+        }).finally(() => {
+            setLoading(false);
+        })
+
     }, [categoryId]);
 
     return (

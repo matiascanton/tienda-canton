@@ -15,7 +15,6 @@ import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import Cart from './components/Cart';
 import Payment from './components/Payment';
-import Checkout from './components/Checkout';
 import Footer from './components/Footer';
 
 // Styles
@@ -50,10 +49,6 @@ function App() {
               {/* Payment Screen */}
               <Route exact path="/payment">
                 <Payment />
-              </Route>
-              {/* Checkout Screen */}
-              <Route exact path="/checkout/:orderId">
-                <Checkout />
               </Route>
             </Switch>
           </div>
