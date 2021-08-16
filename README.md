@@ -7,6 +7,7 @@ Es un ecommerce creado con React.js para el curso de React de Coderhouse.
 ![Screenshot](/public/CapturaListado.PNG?raw=true "Listado de Productos")
 ![Screenshot](/public/Captura1.PNG?raw=true "Detalle de Producto")
 
+* [Demo](https://shoestore-canton.netlify.app/)
 
 ### Instalación 🔧
 
