@@ -11,10 +11,10 @@ import { CartProvider } from './context/CartContext';
 
 // Components
 import NavBar from './components/NavBar';
-import ItemListContainer from './components/ItemListContainer';
-import ItemDetailContainer from './components/ItemDetailContainer';
-import Cart from './components/Cart';
-import Payment from './components/Payment';
+import ItemListContainer from './components/pages/list/ItemListContainer';
+import ItemDetailContainer from './components/pages/product/ItemDetailContainer';
+import Cart from './components/pages/cart/Cart';
+import Payment from './components/pages/payment/Payment';
 import Footer from './components/Footer';
 
 // Styles

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../assets/styles.css';
 import CartWidget from './CartWidget';
-import Logo from '../assets/images/logo2.jpg'
+import Logo from '../assets/images/logostore.png'
 
 function NavBar() {
 
@@ -25,7 +25,7 @@ function NavBar() {
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <Link class="navbar-brand" to="/"><img style={{ width: 80 }} src={Logo}></img></Link>
+                <Link class="navbar-brand" to="/"><img style={{ width: 50 }} src={Logo}></img></Link>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>

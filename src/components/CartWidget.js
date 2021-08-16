@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import IconCart from '../assets/images/cart2.svg'
 
+import IconCart from '../assets/images/cart2.svg'
 import { CartContext } from '../context/CartContext';
 
 export default function CartWidget() {

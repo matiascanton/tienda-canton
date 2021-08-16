@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
-import { CartContext } from '../context/CartContext';
+import { CartContext } from '../../../context/CartContext';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
@@ -14,9 +14,10 @@ const Cart = () => {
 
         <div>
             <h1 className="cart-title"> Mi Carrito </h1>
-            <h5 className="link-keepbuying"><Link to="/"> Seguir comprando</Link></h5>
+
             {cartQuant ?
-                <div className="container-fluid">
+                <div className="container-fluid cart-container">
+                    <h6 class="card-subtitle mb-2 text-muted"><Link to="/"> Seguir comprando</Link></h6>
                     <div className="row">
                         <div className="col-sm-8">
                             <div className="table-responsive">
@@ -48,9 +49,8 @@ const Cart = () => {
 
                                     </tbody>
                                 </table>
-
                             </div>
-                            <div className="asd">
+                            <div className="cart-accion">
                                 <button type="button" className="btn btn-outline-danger" onClick={() => clearCart()}>Vaciar Carrito</button>
 
                             </div>
@@ -71,6 +71,7 @@ const Cart = () => {
                             <Link to="/payment" >
                                 <div className="d-grid gap-2">
                                     <button type="button" className="btn btn-success" >Finalizar Compra</button>
+
                                 </div>
                             </Link>
                         </div>
@@ -79,8 +80,8 @@ const Cart = () => {
 
                     </div>
                 </div>
-                : <div>
-                    <h1>no hay items</h1>
+                : <div className="container-fluid">
+                    <h4> No hay productos en el Carrito</h4>
                     <Link to="/">Volver a la tienda</Link>
                 </div>}
 

@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { CartContext } from '../context/CartContext';
-import { getFirestore, getFirebase } from '../firebase';
+import { CartContext } from '../../../context/CartContext';
+import { getFirestore, getFirebase } from '../../../firebase';
 import { Link } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -81,8 +81,8 @@ const Payment = () => {
 
     return (
         <div className="container-fluid">
-            <div className="row justify-content-md-center">
-                <div className="col-3">
+            <div className="row justify-content-md-center ">
+                <div className="col col-sm-3">
                     <br />
                     <div className="card">
                         {!orderId ?

@@ -173,9 +173,11 @@ label.radio input:checked + div {
   margin-bottom: 20px;
 }
 
-.link-keepbuying {
-  margin: 5px;
+.cart-container {
+  margin-bottom: 2rem;
+}
 
-  padding-left: 50px;
-  text-align: initial;
+.cart-accion {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
